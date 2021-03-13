@@ -15,6 +15,14 @@ import CountryDetails from './components/CountryDetails';
 import countries from './countries.json';
 
 class App extends React.Component {
+  state = {
+    countries: null,
+  };
+
+  componentDidMount() {
+    this.setState({ countries });
+  }
+
   render() {
     return (
       <Container>
