@@ -1,3 +1,5 @@
+import React from 'react';
+
 import './App.css';
 
 import Container from 'react-bootstrap/Container';
@@ -12,22 +14,24 @@ import CountryDetails from './components/CountryDetails';
 
 import countries from './countries.json';
 
-function App() {
-  return (
-    <Container>
-      <Navigationbar />
-      <Row>
-        <Col>
-          <CountriesList countries={countries} />
-        </Col>
-        <Col>
-          <Switch>
-            <Route path="/:id" component={CountryDetails} exact />
-          </Switch>
-        </Col>
-      </Row>
-    </Container>
-  );
+class App extends React.Component {
+  render() {
+    return (
+      <Container>
+        <Navigationbar />
+        <Row>
+          <Col>
+            <CountriesList countries={countries} />
+          </Col>
+          <Col>
+            <Switch>
+              <Route path="/:id" component={CountryDetails} exact />
+            </Switch>
+          </Col>
+        </Row>
+      </Container>
+    );
+  }
 }
 
 export default App;

@@ -12,24 +12,30 @@ class CountryDetails extends React.Component {
       country.borders.includes(border.cca3)
     );
     return (
-      <article>
+      <article style={{ position: 'sticky', top: '5em' }}>
         <h2>{country.name.common}</h2>
         <hr />
-        <p>Capital: {country.capital}</p>
-        <hr />
+        {Boolean(country.capital[0]) && (
+          <>
+            <p>Capital: {country.capital}</p>
+            <hr />
+          </>
+        )}
         <p>Area: {country.area}km²</p>
-        {Boolean(neighbours.length) && <hr />}
         {Boolean(neighbours.length) && (
-          <div>
-            Borders:{' '}
-            <ul>
-              {neighbours.map((border) => (
-                <li key={border.cca3}>
-                  <Link to={border.cca3}>{border.name.common}</Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <>
+            <hr />
+            <div>
+              Borders:{' '}
+              <ul>
+                {neighbours.map((border) => (
+                  <li key={border.cca3}>
+                    <Link to={border.cca3}>{border.name.common}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </>
         )}
       </article>
     );
