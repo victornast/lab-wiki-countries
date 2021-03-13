@@ -18,7 +18,7 @@ class CountryDetails extends React.Component {
         <p>Capital: {country.capital}</p>
         <hr />
         <p>Area: {country.area}km²</p>
-        <hr />
+        {Boolean(neighbours.length) && <hr />}
         {Boolean(neighbours.length) && (
           <div>
             Borders:{' '}
