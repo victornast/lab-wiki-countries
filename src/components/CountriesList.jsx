@@ -5,13 +5,11 @@ import Image from 'react-bootstrap/Image';
 
 import { NavLink } from 'react-router-dom';
 
-import countries from './../countries.json';
-
 class CountriesList extends Component {
   render() {
     return (
       <ListGroup>
-        {countries.map((country) => (
+        {this.props.countries.map((country) => (
           <ListGroup.Item key={country.cca3}>
             <NavLink to={country.cca3}>
               <Image
