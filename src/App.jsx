@@ -20,10 +20,10 @@ class App extends React.Component {
       <Container>
         <Navigationbar />
         <Row>
-          <Col>
+          <Col sm={4}>
             <CountriesList countries={countries} />
           </Col>
-          <Col>
+          <Col sm={8}>
             <Switch>
               <Route path="/:id" component={CountryDetails} exact />
             </Switch>
