@@ -21,7 +21,7 @@ class CountryDetails extends React.Component {
             <hr />
           </>
         )}
-        <p>Area: {country.area}km²</p>
+        <p>Area: {Intl.NumberFormat().format(country.area)} km²</p>
         {Boolean(neighbours.length) && (
           <>
             <hr />
