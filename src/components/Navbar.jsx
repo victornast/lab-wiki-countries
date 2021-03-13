@@ -1,15 +1,16 @@
 import React from 'react';
 
+import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
 
-function Navbar() {
+function Navigationbar() {
   return (
-    <nav>
+    <Navbar>
       <Link to="/">
         <h1>WikiCountries</h1>
       </Link>
-    </nav>
+    </Navbar>
   );
 }
 
-export default Navbar;
+export default Navigationbar;
