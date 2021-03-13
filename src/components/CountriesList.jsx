@@ -9,22 +9,23 @@ function CountriesList({ countries }) {
   return (
     <ListGroup>
       {countries.map((country) => (
-        <ListGroup.Item action variant="light" key={country.cca3}>
-          <NavLink to={country.cca3}>
+        <ListGroup.Item action variant="light" key={country.alpha3Code}>
+          <NavLink to={country.alpha3Code}>
             <Row>
               <Col xs="auto" className="p-1">
                 <Image
                   height="12em"
                   src={
                     'https://www.countryflags.io/' +
-                    country.cca2 +
+                    country.alpha2Code +
                     '/flat/64.png'
                   }
-                  alt={country.cca3}
+                  // {country.flag}
+                  alt={country.alpha3Code}
                 />
               </Col>
               <Col className="p-1">
-                <span>{country.name.common}</span>
+                <span>{country.name}</span>
               </Col>
             </Row>
           </NavLink>

@@ -2,18 +2,20 @@ import React from 'react';
 
 import { Link } from 'react-router-dom';
 
-import countries from './../countries.json';
+// import countries from './../countries.json';
 
 class CountryDetails extends React.Component {
   render() {
     const countryCode = this.props.match.params.id;
-    const country = countries.find((country) => country.cca3 === countryCode);
-    const neighbours = countries.filter((border) =>
-      country.borders.includes(border.cca3)
+    const country = this.props.countries.find(
+      (country) => country.alpha3Code === countryCode
+    );
+    const neighbours = this.props.countries.filter((border) =>
+      country.borders.includes(border.alpha3Code)
     );
     return (
       <article style={{ position: 'sticky', top: '5em' }}>
-        <h2>{country.name.common}</h2>
+        <h2>{country.name}</h2>
         <hr />
         {Boolean(country.capital[0]) && (
           <>
@@ -29,8 +31,8 @@ class CountryDetails extends React.Component {
               Borders:{' '}
               <ul>
                 {neighbours.map((border) => (
-                  <li key={border.cca3}>
-                    <Link to={border.cca3}>{border.name.common}</Link>
+                  <li key={border.alpha3Code}>
+                    <Link to={border.alpha3Code}>{border.name}</Link>
                   </li>
                 ))}
               </ul>
